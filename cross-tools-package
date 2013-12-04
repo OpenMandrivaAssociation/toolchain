@@ -1,0 +1,19 @@
+#!/bin/sh
+cat <<EOF
+%package $1
+Summary: Toolchain for cross-compiling $1 binaries
+Group: Development/Other
+
+%description $1
+Toolchain (binutils, gcc, basic system root) for cross-compiling
+binaries that will run on $1 machines
+
+%files $1
+%_prefix/$1
+%_bindir/$1-*
+%_mandir/man1/$1-*.1*
+%_prefix/lib/gcc/$1
+EOF
+if [ "%_prefix/lib" != "%_libexecdir" ]; then
+	echo %_libexecdir/gcc/$1
+fi
