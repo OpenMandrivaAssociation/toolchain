@@ -20,6 +20,12 @@ Summary: The toolchain (binutils, gcc, glibc) all-in-one for crosscompiling
 URL: http://toolchain.sf.net/
 License: GPL
 Group: Development/Other
+BuildRequires: texinfo
+BuildRequires: gmp-devel
+BuildRequires: mpfr-devel
+BuildRequires: libmpc-devel
+BuildRequires: pkgconfig(isl)
+BuildRequires: pkgconfig(cloog-isl)
 
 %description
 The toolchain (binutils, gcc, glibc) all-in-one for crosscompiling
