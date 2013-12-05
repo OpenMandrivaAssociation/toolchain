@@ -26,6 +26,8 @@ BuildRequires: mpfr-devel
 BuildRequires: libmpc-devel
 BuildRequires: pkgconfig(isl)
 BuildRequires: pkgconfig(cloog-isl)
+BuildRequires: flex
+BuildRequires: bison
 
 %description
 The toolchain (binutils, gcc, glibc) all-in-one for crosscompiling
