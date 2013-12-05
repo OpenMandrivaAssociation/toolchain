@@ -12,6 +12,7 @@ Source1: http://cbuild.validation.linaro.org/snapshots/gcc-%{gcc}.tar.xz
 Source2: http://ftp.gnu.org/pub/gnu/glibc/glibc-%{glibc}.tar.xz 
 Source3: http://ftp.kernel.org/pub/linux/kernel/v3.x/linux-%{kernel}.tar.xz
 Source100: cross-tools-package
+Source1000: toolchain.rpmlintrc
 # Patches for glibc
 Patch0: glibc-2.18-make-4.0.patch
 # see https://sourceware.org/ml/libc-alpha/2013-11/msg00291.html
@@ -104,7 +105,30 @@ for arch in %{arches}; do
 	cd ../../gcc-$arch/stage3
 	../../../gcc-%{gcc}/configure --prefix=%{_prefix} --libexecdir=%{_libexecdir} --target=$arch --with-sysroot="$SYSROOT" --with-build-sysroot=%{buildroot}"$SYSROOT" --enable-__cxa_atexit --disable-libssp --disable-libmudflap --disable-libquadmath --disable-multilib --disable-libgomp --enable-languages=c,c++,ada,objc,obj-c++,lto
 	cd ../../..
+	# Teach cmake about the cross toolchain in a way the %%cmake
+	# rpm macro understands
+	mkdir -p %{buildroot}%{_prefix}/$arch/share/cmake
+	cat >%{buildroot}%{_prefix}/$arch/share/cmake/$arch.toolchain <<EOF
+set(CMAKE_SYSTEM_NAME Linux)
+set(CMAKE_SYSTEM_VERSION 1)
+set(CMAKE_SYSTEM_PROCESSOR $KERNELARCH)
+
+set(CMAKE_C_COMPILER "%{_bindir}/$arch-gcc")
+set(CMAKE_CXX_COMPILER "%{_bindir}/$arch-g++")
+
+set(CMAKE_FIND_ROOT_PATH "$SYSROOT")
+set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM BOTH)
+set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+EOF
 done
+
+# Not sure why the kernel would install those - definitely useless
+find %{buildroot} -name .install |xargs rm -f
+
+# Those bits just aren't useful in a sysroot
+rm -rf %{buildroot}%{_prefix}/*/sys-root%{_datadir}/locale
+rm -rf %{buildroot}%{_prefix}/*/sys-root%{_infodir}
 
 # Get rid of the stuff we're getting from the native toolchain
 # (unless and until we start building native toolchains here too)

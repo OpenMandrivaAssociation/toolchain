@@ -1,0 +1,12 @@
+# rpm's post scripts have no idea about dealing with crosscompiled bits
+addFilter("E: unstripped-binary-or-object")
+addFilter("E: shared-lib-without-dependency-information")
+addFilter("E: missing-PT_GNU_STACK-section")
+# intentional for glibc related bits
+addFilter("E: statically-linked-binary")
+addFilter("E: shared-library-calls-exit")
+addFilter("E: invalid-soname")
+addFilter("E: binary-or-shlib-defines-rpath")
+# intentional while we ship the sysroot in the same package as the tools
+addFilter("E: executable-in-library-package")
+addFilter("E: devel-file-in-non-devel-package")
