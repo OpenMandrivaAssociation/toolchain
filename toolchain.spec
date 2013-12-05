@@ -28,11 +28,12 @@ BuildRequires: pkgconfig(isl)
 BuildRequires: pkgconfig(cloog-isl)
 BuildRequires: flex
 BuildRequires: bison
+BuildRequires: gcc-gnat
 
 %description
 The toolchain (binutils, gcc, glibc) all-in-one for crosscompiling
 
-%{expand:%(for arch in %{arches}; do %SOURCE100 $arch; done)}
+%{expand:%(for arch in %{arches}; do sh %SOURCE100 $arch; done)}
 
 %prep
 %setup -q -c -a 1 -a 2 -a 3
