@@ -1,11 +1,11 @@
-%define binutils 2.24.51.0.1
+%define binutils 2.24.51.0.2
 %define glibc 2.18
-%define gcc linaro-4.8-2013.11
-%define kernel 3.12.2
-%define arches armv6l-openmandriva-linux-gnueabi armv6b-openmandriva-linux-gnueabi armv7l-openmandriva-linux-gnueabi armv7hl-openmandriva-linux-gnueabi aarch64-openmandriva-linux-gnu
+%define gcc linaro-4.8-2013.12
+%define kernel 3.12.6
+%define arches armv6l-openmandriva-linux-gnueabi armv6b-openmandriva-linux-gnueabi armv7l-openmandriva-linux-gnueabi armv7hl-openmandriva-linux-gnueabi armv7bl-openmandriva-linux-gnu aarch64-openmandriva-linux-gnu
 
 Name: toolchain
-Version: 2013.11
+Version: 2013.12
 Release: 1
 Source0: http://ftp.kernel.org/pub/linux/devel/binutils/binutils-%{binutils}.tar.xz
 Source1: http://cbuild.validation.linaro.org/snapshots/gcc-%{gcc}.tar.xz

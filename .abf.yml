@@ -1,5 +1,5 @@
 sources:
-  "binutils-2.24.51.0.1.tar.xz": 32d68ea880962b95312254d5da0e8fa501c6e505
-  "gcc-linaro-4.8-2013.11.tar.xz": 95fc29cab637e038d60f6449a948b60fea688ac1
+  "binutils-2.24.51.0.2.tar.xz": 3bd840fcd1d23f215306ee90f0a4dcf5d204bd10
+  "gcc-linaro-4.8-2013.12.tar.xz": 05a4f00a310d1a0bfb416c93208ae45caaab1a1d
   "glibc-2.18.tar.xz": 1f0e4e7ba5fe1f45ffd0548b6c36caef0bc7e51f
-  "linux-3.12.2.tar.xz": a19822002aa765d25a4f2ef98505c117a8644b81
+  "linux-3.12.6.tar.xz": 202bd5eee8f4a79c3f27fbbccb90de6b4c8ddee3
