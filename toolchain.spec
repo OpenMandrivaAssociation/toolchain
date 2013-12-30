@@ -2,7 +2,7 @@
 %define glibc 2.18
 %define gcc linaro-4.8-2013.12
 %define kernel 3.12.6
-%define arches armv6l-openmandriva-linux-gnueabi armv6b-openmandriva-linux-gnueabi armv7l-openmandriva-linux-gnueabi armv7hl-openmandriva-linux-gnueabi armv7hb-openmandriva-linux-gnu aarch64-openmandriva-linux-gnu
+%define arches armv6b-openmandriva-linux-gnueabi armv6l-openmandriva-linux-gnueabi armv7l-openmandriva-linux-gnueabi armv7hl-openmandriva-linux-gnueabi armv7nhl-openmandriva-linux-gnueabi armv7eb-openmandriva-linux-gnu aarch64-openmandriva-linux-gnu aarch64_be-openmandriva-linux-gnu mipsel-openmandriva-linux-gnu
 
 Name: toolchain
 Version: 2013.12
