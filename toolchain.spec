@@ -18,7 +18,7 @@ Patch0: glibc-2.18-make-4.0.patch
 # see https://sourceware.org/ml/libc-alpha/2013-11/msg00291.html
 Patch1: glibc-2.18-fix-build-with-gcc-4.8.3.patch
 Summary: The toolchain (binutils, gcc, glibc) all-in-one for crosscompiling
-URL: http://toolchain.sf.net/
+URL: https://toolchain.sf.net/
 License: GPL
 Group: Development/Other
 BuildRequires: texinfo
